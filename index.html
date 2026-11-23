@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stayly – Apartmani</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#"><span class="brand-mark">S</span>Stayly</a>
+    <nav><a href="#homes">Smještaji</a><a href="#about">O nama</a></nav>
+    <button class="host-button" type="button">Postani domaćin</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Putuj. Otkrivaj. Odiđi.</p>
+        <h1>Pronađi savršeno mjesto<br>za svoj odmor</h1>
+        <form class="search-box" id="search-form">
+          <label><span>Odredište</span><input id="destination" type="text" placeholder="Grad, država ili apartman"></label>
+          <label><span>Dolazak</span><input id="checkin" type="date" required></label>
+          <label><span>Odlazak</span><input id="checkout" type="date" required></label>
+          <label><span>Gosti</span><select id="guests"><option value="1">1 gost</option><option value="2">2 gosta</option><option value="3">3 gosta</option><option value="4">4 gosta</option><option value="6">6 gostiju</option></select></label>
+          <button class="search-button" type="submit" aria-label="Pretraži"><span>⌕</span></button>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="homes">
+      <div class="section-heading"><div><p class="kicker">POPUTAJNI POPULARNE DESTINACIJE</p><h2>Izdvojeni smještaji</h2></div><div class="arrows"><button type="button" aria-label="Prethodno">‹</button><button type="button" aria-label="Sljedeće">›</button></div></div>
+      <div class="apartment-grid" id="apartment-grid"></div>
+    </section>
+
+    <section class="promo" id="about">
+      <div><p class="kicker">OSTANI GURDIĆNO</p><h2>Dom daleko od doma.</h2><p>Ručno odabrani apartmani, pouzdani domaćini i jedinstvena iskustva u najljepšim gradovima.</p><a href="#homes">Istraži smještaje →</a></div>
+    </section>
+  </main>
+
+  <dialog id="booking-modal">
+    <button class="modal-close" type="button" aria-label="Zatvori">×</button>
+    <div id="modal-content"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
