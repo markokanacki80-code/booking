@@ -3,48 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stayly – Apartmani</title>
+  <meta name="theme-color" content="#173c32">
+  <meta name="description" content="Rezervišite svoj boravak u apartmanu City Hill.">
+  <title>City Hill — apartman za vaš odmor</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="navbar">
-    <a class="brand" href="#"><span class="brand-mark">S</span>Stayly</a>
-    <nav><a href="#homes">Smještaji</a><a href="#about">O nama</a></nav>
-    <button class="host-button" type="button">Postani domaćin</button>
+    <a class="brand" href="#home" aria-label="City Hill početna strana"><span class="brand-mark">C</span><span id="brand-name">City Hill</span></a>
+    <nav aria-label="Glavna navigacija"><a href="#apartment">Apartman</a><a href="#booking">Rezervacija</a><a href="#contact">Kontakt</a></nav>
+    <button class="admin-open" id="admin-open" type="button">Upravljanje</button>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <p class="eyebrow">Putuj. Otkrivaj. Odiđi.</p>
-        <h1>Pronađi savršeno mjesto<br>za svoj odmor</h1>
-        <form class="search-box" id="search-form">
-          <label><span>Odredište</span><input id="destination" type="text" placeholder="Grad, država ili apartman"></label>
-          <label><span>Dolazak</span><input id="checkin" type="date" required></label>
-          <label><span>Odlazak</span><input id="checkout" type="date" required></label>
-          <label><span>Gosti</span><select id="guests"><option value="1">1 gost</option><option value="2">2 gosta</option><option value="3">3 gosta</option><option value="4">4 gosta</option><option value="6">6 gostiju</option></select></label>
-          <button class="search-button" type="submit" aria-label="Pretraži"><span>⌕</span></button>
-        </form>
+  <main id="home">
+    <section class="hero" id="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">VAŠ MIRAN KUTAK U GRADU</p>
+        <h1 id="hero-title">Dobro došli u<br>City Hill</h1>
+        <p id="hero-location" class="hero-location">Udoban boravak, na odličnoj lokaciji.</p>
+        <a class="primary-link" href="#booking">Proveri dostupnost <span>→</span></a>
       </div>
+      <div class="hero-caption"><span class="dot"></span> Pažljivo pripremljeno za vaš boravak</div>
     </section>
 
-    <section class="section" id="homes">
-      <div class="section-heading"><div><p class="kicker">POPUTAJNI POPULARNE DESTINACIJE</p><h2>Izdvojeni smještaji</h2></div><div class="arrows"><button type="button" aria-label="Prethodno">‹</button><button type="button" aria-label="Sljedeće">›</button></div></div>
-      <div class="apartment-grid" id="apartment-grid"></div>
+    <section class="intro section" id="apartment">
+      <div class="intro-copy"><p class="eyebrow dark">DOBRO DOŠLI U <span id="intro-name">CITY HILL</span></p><h2 id="intro-title">Uživajte u boravku.</h2><p id="description">Udoban apartman za prijatan odmor i istraživanje grada. Sve što vam treba za bezbrižne dane — na jednom mestu.</p><div class="facts" id="facts"></div></div>
+      <div class="gallery" id="gallery" aria-label="Fotografije apartmana"></div>
     </section>
 
-    <section class="promo" id="about">
-      <div><p class="kicker">OSTANI GURDIĆNO</p><h2>Dom daleko od doma.</h2><p>Ručno odabrani apartmani, pouzdani domaćini i jedinstvena iskustva u najljepšim gradovima.</p><a href="#homes">Istraži smještaje →</a></div>
-    </section>
+    <section class="amenities-section"><div class="section narrow"><p class="eyebrow dark">SVE ŠTO VAM TREBA</p><h2>Udobnost na prvom mestu</h2><div class="amenities" id="amenities"></div></div></section>
+
+    <section class="booking-section" id="booking"><div class="booking-wrap"><div><p class="eyebrow">PLANIRAJTE BORAVAK</p><h2>Vaš sledeći odmor<br>počinje ovde.</h2><p class="booking-note">Pošaljite upit za željeni termin. Domaćin će vam potvrditi dostupnost.</p><p class="contact-line" id="booking-contact"></p></div><form class="booking-card" id="booking-form"><h3>Proverite termin</h3><div class="date-fields"><label>Dolazak<input id="checkin" name="checkin" type="date" required></label><label>Odlazak<input id="checkout" name="checkout" type="date" required></label></div><label>Broj gostiju<select id="guest-count" name="guests" required></select></label><label>Vaše ime<input name="guestName" autocomplete="name" placeholder="Ime i prezime" required maxlength="80"></label><label>E-mail ili telefon<input name="contact" autocomplete="email" placeholder="Kako možemo da vas kontaktiramo?" required maxlength="120"></label><label>Napomena <span class="optional">(opciono)</span><textarea name="message" rows="3" placeholder="Posebne želje ili pitanje"></textarea></label><div class="total-row"><span id="price-summary">Cena po noći</span><strong id="estimated-total">—</strong></div><button class="submit-button" type="submit">Pošalji upit</button><p class="privacy-note">Upit nije potvrđena rezervacija. Kontakt podaci ostaju u ovom pregledaču dok se ne poveže servis za slanje.</p><p id="booking-status" class="form-status" role="status" aria-live="polite"></p></form></div></section>
+
+    <footer id="contact"><a class="brand footer-brand" href="#home"><span class="brand-mark">C</span><span id="footer-name">City Hill</span></a><p id="footer-location">Apartman za vaš odmor</p><a id="contact-link" href="#booking">Kontaktirajte nas</a><small>© <span id="year"></span> <span id="copyright-name">City Hill</span></small></footer>
   </main>
 
-  <dialog id="booking-modal">
-    <button class="modal-close" type="button" aria-label="Zatvori">×</button>
-    <div id="modal-content"></div>
-  </dialog>
-
-  <div class="toast" id="toast" role="status"></div>
+  <dialog id="admin-dialog" aria-labelledby="admin-title"><div class="admin-shell"><header class="admin-header"><div><p class="eyebrow dark">SAMO ZA VLASNIKA</p><h2 id="admin-title">Upravljanje apartmanom</h2></div><button id="admin-close" class="close-button" type="button" aria-label="Zatvori">×</button></header><p class="admin-notice">Podaci se trenutno čuvaju samo u ovom pregledaču. Google Sheets povezivanje još nije podešeno. Ovo nije zaštićen administratorski nalog — nemojte postavljati osetljive podatke.</p><form id="settings-form" class="settings-form"><label>Naziv apartmana<input name="name" required maxlength="60"></label><label>Grad / lokacija<input name="location" maxlength="120" placeholder="npr. centar grada"></label><label>Opis<textarea name="description" rows="3" maxlength="500"></textarea></label><div class="admin-grid"><label>Cena po noći (€)<input name="price" type="number" min="0" step="1" required></label><label>Maksimalan broj gostiju<input name="capacity" type="number" min="1" max="30" step="1" required></label><label>Spavaće sobe<input name="bedrooms" type="number" min="0" max="30" step="1"></label><label>Kreveti<input name="beds" type="number" min="1" max="30" step="1"></label></div><label>Pogodnosti <span class="optional">(odvojite zarezom)</span><input name="amenities" placeholder="Wi-Fi, klima, parking"></label><label>Fotografije <span class="optional">(URL-ovi, jedan po redu; prva je naslovna)</span><textarea name="photos" rows="4" placeholder="https://..."></textarea></label><div class="admin-grid"><label>Telefon<input name="phone" type="tel" maxlength="40"></label><label>E-mail<input name="email" type="email" maxlength="120"></label></div><label>Nedostupni datumi <span class="optional">(jedan datum po redu, YYYY-MM-DD)</span><textarea name="unavailable" rows="4" placeholder="2026-07-14"></textarea></label><div class="settings-actions"><button class="submit-button" type="submit">Sačuvaj izmene</button><button id="reset-settings" class="secondary-button" type="button">Vrati početne podatke</button></div><p id="settings-status" class="form-status" role="status"></p></form><section class="requests-section"><h3>Primljeni upiti u ovom pregledaču</h3><div id="requests-list"></div></section></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
 </body>
 </html>
